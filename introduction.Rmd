@@ -1,0 +1,24 @@
+---
+title: "UK Pubs"
+author: "Simon Brewer"
+date: "August 10, 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Mapping UK pub names
+
+This is an attempt to map UK pub names as kernel surfaces, which will allow population and pub density adjustments. 
+
+The code was obtained using scripts and data by Jovan Lekovicj at 
+
+https://github.com/lekovicj/Geography-of-Pub-Names
+
+and 
+
+http://constantlyplotting.com/the-geography-of-uk-pub-names/
+:
+
