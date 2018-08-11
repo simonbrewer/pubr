@@ -27,11 +27,14 @@ pubs.crds = coordinates(pubs.sp)
 pdf("pubsHex.pdf")
 plot.df = data.frame(long=pubs.crds[,1], lat=pubs.crds[,2])
 p  <- ggplot(data=plot.df, aes(x=long,y=lat))
-p <- p + stat_binhex(bins=200, binwidth=c(10000,10000))
+p <- p + stat_binhex(binwidth=c(5000,5000))
+# p <- p + stat_binhex(bins=200)
 p <- p + geom_path(data=uk.gg,aes(group=group), size=0.25) 
 p <- p +
-  scale_fill_gradientn(colours=c('light gray','blue'),name='Frequency',na.value=NA) +
+  scale_fill_gradientn(colours=c('light gray','blue'),
+                       name='Frequency',na.value=NA) +
   coord_equal() +
   labs(x=NULL, y=NULL) +
   theme_bw() 
+print(p)
 dev.off()

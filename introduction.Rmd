@@ -20,5 +20,12 @@ https://github.com/lekovicj/Geography-of-Pub-Names
 and 
 
 http://constantlyplotting.com/the-geography-of-uk-pub-names/
-:
+
+## Basic exploration
+
+```{r}
+pubs <- read.csv("./data/osmPubs.csv")
+head(pubs)
+```
+
 
