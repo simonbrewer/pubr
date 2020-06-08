@@ -29,7 +29,7 @@ pubs.crds = coordinates(pubs.sp)
 # pdf("pubsHex.pdf")
 plot.df = data.frame(long=pubs.crds[,1], lat=pubs.crds[,2])
 p <- ggplot(data=plot.df, aes(x=long,y=lat))
-p <- p + stat_binhex(binwidth=c(10000,10000))
+p <- p + stat_binhex(binwidth=c(25000,25000))
 # p <- p + stat_binhex(bins=200)
 p <- p + geom_path(data=uk.gg,aes(group=group), size=0.25) 
 p <- p +
@@ -43,7 +43,12 @@ print(p)
 plot_gg(p, width = 5, height = 4, scale = 300, multicore = FALSE, 
         windowsize = c(1000, 800))
 
-render_camera(fov = 40, zoom = 0.5, theta = 350, phi = 35)
+render_camera(fov = 70, zoom = 0.4, theta = 35, phi = 55)
+## Render to file
+render_snapshot(clear = FALSE, filename = "hex_plot.png")
+render_depth(focus = 0.7, focallength = 35, clear = FALSE, filename = "hex_plot_focus.png")
 
-render_depth(focus = 0.6, focallength = 35, clear = FALSE)
-
+## Render to mp4 at set height
+render_camera(fov = 70, zoom = 0.4, theta = 35, phi = 55)
+render_movie(filename = "hex_plot_orbit", type = "orbit",
+             phi = 45, theta = 60)
